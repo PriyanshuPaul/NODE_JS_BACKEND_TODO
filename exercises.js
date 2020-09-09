@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let Exercise = require('../models/exercise.model');
 
+
 //Return JSON format if found GET
 router.route('/').get((req, res) => {
   Exercise.find()
@@ -13,6 +14,9 @@ router.route('/add').post((req, res) => {
   const task = req.body.task;
   const description = req.body.description;
   const duration = Number(req.body.duration);
+  //const createdAt = Date(req.body.createdAt);
+  //const expireAt = Date(req.body.expireAt);
+
   //const date = Date.parse(req.body.date);
 
   const newExercise = new Exercise({
@@ -20,6 +24,8 @@ router.route('/add').post((req, res) => {
     task,
     description,
     duration,
+    //createdAt,
+    //expireAt,
     //date,
   });
 
